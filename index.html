@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Math Chatbot - Light Theme UI with Friendly Search Answers</title>
+  <title>Math o-4 - Dark Theme Default with Friendly Math Chatbot</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
@@ -11,32 +11,34 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      color: #0B0B0D;
+      background: #121212;
+      color: #e0e0e0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      transition: background-color 0.7s ease, color 0.7s ease;
     }
     .chat-container {
       width: 100%;
       max-width: 600px;
       height: 90vh;
-      background: #FF8C66;
+      background: #1e1e1e;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 12px rgba(255, 140, 102, 0.25);
+      box-shadow: 0 4px 12px rgba(255, 140, 102, 0.5);
       animation: float 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      transition: background-color 0.7s ease, color 0.7s ease, box-shadow 0.7s ease;
     }
     .header {
       padding: 20px 24px;
       font-size: 1.6rem;
       font-weight: 700;
-      color: #fff;
+      color: #FF8C66;
       border-bottom: 1px solid #FFBCA8;
       user-select: none;
-      text-shadow: 0 0 8px #FF8C6644;
+      text-shadow: 0 0 8px #FF8C66bb;
     }
     #chatBox {
       flex-grow: 1;
@@ -45,10 +47,11 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      background: white;
+      background: #2a2a2a;
       border-radius: 0 0 12px 12px;
-      box-shadow: inset 0 0 10px #ff7c3e44;
-      color: #222;
+      box-shadow: inset 0 0 12px #ff7c3e66;
+      color: #ddd;
+      transition: background-color 0.7s ease, color 0.7s ease, box-shadow 0.7s ease;
     }
     #chatBox::-webkit-scrollbar {
       width: 8px;
@@ -66,7 +69,8 @@
       word-wrap: break-word;
       white-space: pre-wrap;
       animation: fadeInUp 0.3s ease forwards;
-      box-shadow: 0 2px 6px #FF8C6644;
+      box-shadow: inset 0 0 8px #FF8C66;
+      transition: background-color 0.7s ease, color 0.7s ease, box-shadow 0.7s ease;
     }
     .msg.user {
       background: #FF8C66;
@@ -76,11 +80,11 @@
       box-shadow: 0 4px 12px #FF8C6688;
     }
     .msg.bot {
-      background: #FFF1E6;
-      color: #6B3E1B;
+      background: #3a3a3a;
+      color: #ffb88c;
       align-self: flex-start;
       border-bottom-left-radius: 0;
-      box-shadow: inset 0 0 8px #FFBCA8;
+      box-shadow: inset 0 0 12px #FFBCA8;
     }
     .msg.error {
       background: #FF6B6B;
@@ -95,21 +99,22 @@
     form.input-area {
       display: flex;
       padding: 16px 20px;
-      background: #FFF1E6;
-      border-top: 1px solid #FFBCA8;
+      background: #2a2a2a;
+      border-top: 1px solid #FF8C66;
       gap: 12px;
       align-items: center;
       border-radius: 0 0 12px 12px;
+      transition: background-color 0.7s ease;
     }
     form.input-area input[type="text"] {
       flex-grow: 1;
       padding: 14px 18px;
       border-radius: 30px;
       border: 1.5px solid #FF8C66;
-      background: white;
-      color: #6B3E1B;
+      background: #3a3a3a;
+      color: #ffbb99;
       font-size: 1rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.7s ease, color 0.7s ease;
     }
     form.input-area input[type="text"]:focus {
       outline: none;
@@ -149,28 +154,12 @@
       background: #FF8C66;
       color: white;
       box-shadow: 0 0 20px #FF8C66aa;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
     button[type="submit"]:hover {
       background: #E3783E;
       box-shadow: 0 0 25px #E3783Ecc;
       transform: scale(1.05);
-    }
-    #modeToggle {
-      border-radius: 30px;
-      width: auto;
-      padding: 8px 20px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #FF8C66;
-      border: 2px solid #FF8C66;
-      background: transparent;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    }
-    #modeToggle:hover {
-      background: #FF8C66;
-      color: white;
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #FF8C66aa;
     }
     #imageInput {
       display: none;
@@ -210,8 +199,9 @@
       user-select: none;
       border-bottom: 2px solid #FF8C66;
       box-shadow: 0 2px 8px #FF8C6644;
-      background: #fff;
+      background: #1e1e1e;
       flex-shrink: 0;
+      transition: background-color 0.7s ease, color 0.7s ease, box-shadow 0.7s ease;
     }
     body {
       display: flex;
@@ -221,13 +211,84 @@
       height: 100vh;
       margin: 0;
       font-family: 'Inter', sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      transition: background-color 0.7s ease, color 0.7s ease;
+    }
+    /* THEME TOGGLE BUTTON */
+    #themeToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #FF8C66;
+      color: white;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 140, 102, 0.6);
+      transition: background-color 0.5s ease, color 0.5s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      z-index: 9999;
+    }
+    #themeToggle:hover {
+      background: #e3783e;
+      transform: scale(1.1);
+      box-shadow: 0 6px 18px rgba(227, 120, 62, 0.8);
+    }
+
+    /* LIGHT MODE STYLES */
+    body.light-mode {
       background: #FFFFFF;
       color: #0B0B0D;
     }
+    body.light-mode .chat-container {
+      background: #FF8C66;
+      box-shadow: 0 4px 12px rgba(255, 140, 102, 0.25);
+    }
+    body.light-mode header {
+      background: #fff;
+      border-bottom-color: #FFBCA8;
+      color: #FF8C66;
+      text-shadow: 0 0 8px #FF8C6644;
+    }
+    body.light-mode #chatBox {
+      background: white;
+      color: #222;
+      box-shadow: inset 0 0 10px #ff7c3e44;
+    }
+    body.light-mode form.input-area {
+      background: #FFF1E6;
+      border-top-color: #FFBCA8;
+    }
+    body.light-mode form.input-area input[type="text"] {
+      background: white;
+      color: #6B3E1B;
+      border-color: #FF8C66;
+    }
+
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* So it doesn't block clicks */
+      z-index: 0; /* Behind everything */
+      mix-blend-mode: screen; /* Makes particles blend nicely */
+    }
   </style>
 </head>
-<body>
-  <header>Math GPT</header>
+<body class="dark-mode">
+  <header>Math o-4</header>
+  <!-- THEME TOGGLE BUTTON -->
+  <button id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle light/dark theme">☀️</button>
+  <canvas id="particles"></canvas>
 
   <div class="chat-container" role="main" aria-label="Math chatbot interface">
     <div class="header">Math Chatbot</div>
@@ -239,7 +300,6 @@
       <input type="file" id="imageInput" accept="image/*" aria-hidden="true" />
       <button type="button" id="voiceBtn" title="Start voice input 🎤" aria-label="Start voice input">🎤</button>
       <input id="chatInput" type="text" placeholder="Type or speak your math question..." aria-label="Chat input" />
-      <button type="button" id="modeToggle" title="Switch between Math and Search mode" aria-pressed="true">Mode: Math</button>
       <button type="submit" aria-label="Send message">Send</button>
     </form>
   </div>
@@ -254,7 +314,7 @@
     const voiceBtn = document.getElementById('voiceBtn');
     const imageBtn = document.getElementById('imageBtn');
     const imageInput = document.getElementById('imageInput');
-    const modeToggleBtn = document.getElementById('modeToggle');
+    const themeToggle = document.getElementById('themeToggle');
 
     let variables = {};
     const WOLFRAM_APPID = '23KKQ9JWEG';  // Put your Wolfram Alpha AppID here
@@ -306,12 +366,10 @@
       return text;
     }
 
-    // NEW FUNCTION: Query WolframAlpha full API to get pods (including images) via public CORS proxy
     async function queryWolframAlphaFull(input) {
       try {
         const encodedInput = encodeURIComponent(input);
         const apiUrl = `https://api.wolframalpha.com/v2/query?input=${encodedInput}&appid=${WOLFRAM_APPID}&format=plaintext,image&output=JSON`;
-        // Using public proxy to avoid CORS issues:
         const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
 
         const response = await fetch(proxyUrl);
@@ -343,229 +401,185 @@
       }
     }
 
-    async function queryDuckDuckGo(query) {
-      try {
-        const url = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_redirect=1&skip_disambig=1`;
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('No result from DuckDuckGo');
-        const data = await response.json();
+    async function processQuery(query) {
+      appendMessage(query, 'user');
 
-        if (data.AbstractText) {
-          return data.AbstractText;
-        } else if (data.RelatedTopics && data.RelatedTopics.length > 0) {
-          const topic = data.RelatedTopics[0];
-          if (topic.Text) return topic.Text;
-          if (topic.Topics && topic.Topics.length > 0) return topic.Topics[0].Text;
-        }
-        return null;
-      } catch {
-        return null;
-      }
-    }
-
-    // NEW: Improved generateShortEssay with debug logs
-    async function generateShortEssay(input) {
-      const essayMatch = input.match(/write (?:a )?(\d+) words? (?:about|on) (.+)/i);
-      if (!essayMatch) {
-        console.log('Essay pattern not matched');
-        return null;
-      }
-
-      const wordCount = parseInt(essayMatch[1]);
-      const topic = essayMatch[2];
-      console.log(`Essay requested: ${wordCount} words about "${topic}"`);
-
-      try {
-        // Query DuckDuckGo for the topic summary
-        const summary = await queryDuckDuckGo(topic);
-        if (!summary) {
-          console.log('No summary found on DuckDuckGo');
-          return null;
-        }
-        console.log('DuckDuckGo summary:', summary);
-
-        // Generate approx. word-limited essay by truncating summary
-        const words = summary.split(/\s+/).slice(0, wordCount);
-        return words.join(' ') + (words.length >= wordCount ? '...' : '');
-      } catch (e) {
-        console.error('Error in generateShortEssay:', e);
-        return null;
-      }
-    }
-
-    async function solveMathOrWordProblem(input) {
-      input = input.trim();
-
-      // Check if it's an essay request
-      const essay = await generateShortEssay(input);
-      if (essay) return essay;
-
-      // Try mathjs first:
-      try {
-        const preprocessed = preprocess(input);
-        const val = math.evaluate(preprocessed, variables);
-        return `Answer: ${val}`;
-      } catch {
-        // If mathjs fails, try WolframAlpha full query API:
-        const wolframResponse = await queryWolframAlphaFull(input);
-        if (wolframResponse) return wolframResponse;
-
-        // fallback to WolframAlpha short API (text only)
-        const wolframShort = await queryWolframAlphaShort(input);
-        if (wolframShort) return `Wolfram Alpha says: ${wolframShort}`;
-
-        return null;
-      }
-    }
-
-    async function queryWolframAlphaShort(query) {
-      try {
-        const apiUrl = `https://api.wolframalpha.com/v1/result?appid=${WOLFRAM_APPID}&i=${encodeURIComponent(query)}`;
-        const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error('No result from Wolfram Alpha');
-        const text = await response.text();
-        return text;
-      } catch (error) {
-        return null;
-      }
-    }
-
-    let isMathMode = true;  // default to Math mode
-
-    function updateModeUI() {
-      imageBtn.disabled = !isMathMode;
-      voiceBtn.title = isMathMode ? "Start voice input" : "Start voice input (Search mode)";
-      imageBtn.title = isMathMode ? "Upload screenshot 📷" : "Disabled in Search mode";
-      modeToggleBtn.textContent = `Mode: ${isMathMode ? 'Math' : 'Search'}`;
-      modeToggleBtn.setAttribute('aria-pressed', isMathMode);
-      chatInput.placeholder = isMathMode
-        ? 'Type or speak your math question...'
-        : 'Type your search query...';
-    }
-
-    // Simple conversational replies for greetings and small talk
-    const simpleReplies = {
-      hello: "Hi there! How can I help you with math or search today?",
-      hi: "Hello! Ready to solve some math or find answers?",
-      hey: "Hey! What math problem or question do you have?",
-      thanks: "You're welcome! Anything else I can do?",
-      "thank you": "Glad to help!",
-      bye: "Goodbye! Have a great day!",
-    };
-
-    async function getSimpleReply(input) {
-      const key = input.toLowerCase().trim();
-      return simpleReplies[key] || null;
-    }
-
-    async function handleUserInput(input) {
-      if (!input.trim()) return;
-
-      appendMessage(input, 'user');
-
-      // Check for simple replies first
-      const simpleReply = await getSimpleReply(input);
-      if (simpleReply) {
-        appendMessage(simpleReply, 'bot');
+      if (!query.trim()) {
+        appendMessage("Please enter a math question.", 'bot', true);
         return;
       }
 
-      if (isMathMode) {
-        const answer = await solveMathOrWordProblem(input);
-        if (answer) {
-          appendHTMLMessage(answer, 'bot');
-        } else {
-          appendMessage("Sorry, I couldn't find an answer. Try a different question.", 'bot', true);
+      // Always Math mode now
+      const processed = preprocess(query);
+      try {
+        // Try mathjs first
+        const evalResult = math.evaluate(processed, variables);
+        if (evalResult !== undefined) {
+          variables = {...variables, ans: evalResult};
+          appendMessage(String(evalResult), 'bot');
+          return;
         }
-      } else {
-        // Search mode: Just query DuckDuckGo summary or fallback
-        const summary = await queryDuckDuckGo(input);
-        if (summary) {
-          appendMessage(summary, 'bot');
-        } else {
-          appendMessage("No search results found. Try rephrasing your query.", 'bot', true);
-        }
+      } catch {
+        // fallthrough to WolframAlpha query
       }
+
+      // Try WolframAlpha with rich pods
+      const wolframResult = await queryWolframAlphaFull(query);
+      if (wolframResult) {
+        appendHTMLMessage(wolframResult, 'bot');
+        return;
+      }
+
+      appendMessage("I couldn't solve this math problem.", 'bot', true);
     }
 
     chatForm.addEventListener('submit', async e => {
       e.preventDefault();
-      const input = chatInput.value;
+      if (!chatInput.value.trim()) return;
+      chatInput.disabled = true;
+      await processQuery(chatInput.value);
       chatInput.value = '';
-      await handleUserInput(input);
-    });
-
-    modeToggleBtn.addEventListener('click', () => {
-      isMathMode = !isMathMode;
-      updateModeUI();
+      chatInput.disabled = false;
       chatInput.focus();
     });
 
-    updateModeUI();
-
     // Voice recognition
-    let recognition;
-    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      recognition = new SpeechRecognition();
+    if ('webkitSpeechRecognition' in window) {
+      let recognition = new webkitSpeechRecognition();
+      recognition.continuous = false;
       recognition.lang = 'en-US';
       recognition.interimResults = false;
-      recognition.maxAlternatives = 1;
 
-      recognition.addEventListener('result', event => {
-        const transcript = event.results[0][0].transcript;
-        chatInput.value = transcript;
+      voiceBtn.addEventListener('click', () => {
+        recognition.start();
       });
 
-      recognition.addEventListener('end', () => {
-        voiceBtn.disabled = false;
-        voiceBtn.textContent = "🎤";
-      });
+      recognition.onresult = (event) => {
+        if (event.results.length > 0) {
+          chatInput.value = event.results[0][0].transcript;
+          chatInput.focus();
+        }
+      };
+
+      recognition.onerror = () => {
+        recognition.stop();
+      };
     } else {
       voiceBtn.disabled = true;
       voiceBtn.title = 'Voice recognition not supported';
     }
 
-    voiceBtn.addEventListener('click', () => {
-      if (!recognition) return;
-      if (voiceBtn.textContent === "🎤") {
-        recognition.start();
-        voiceBtn.textContent = "🎙️";
-        voiceBtn.disabled = true;
-      } else {
-        recognition.stop();
-        voiceBtn.textContent = "🎤";
-        voiceBtn.disabled = false;
-      }
-    });
-
     // Image upload and OCR
-    imageBtn.addEventListener('click', () => {
-      imageInput.click();
-    });
+    imageBtn.addEventListener('click', () => imageInput.click());
 
-    imageInput.addEventListener('change', async () => {
+    imageInput.addEventListener('change', () => {
       if (imageInput.files.length === 0) return;
       const file = imageInput.files[0];
-      appendMessage("🖼️ Processing image, please wait...", 'bot');
-
-      try {
-        const worker = Tesseract.createWorker({
-          logger: m => console.log(m)
+      Tesseract.recognize(file, 'eng', { logger: m => console.log(m) })
+        .then(({ data: { text } }) => {
+          chatInput.value = text.trim();
+          chatInput.focus();
+        })
+        .catch(() => {
+          appendMessage("OCR failed. Please try again with a clearer image.", 'bot', true);
         });
-        await worker.load();
-        await worker.loadLanguage('eng');
-        await worker.initialize('eng');
-        const { data: { text } } = await worker.recognize(file);
-        await worker.terminate();
-
-        appendMessage(`Extracted text: "${text.trim()}"`, 'bot');
-        await handleUserInput(text.trim());
-      } catch (err) {
-        appendMessage("Error reading image text.", 'bot', true);
-      }
       imageInput.value = '';
     });
+
+    // THEME TOGGLE
+    function updateThemeUI() {
+      if(document.body.classList.contains('light-mode')) {
+        themeToggle.textContent = '🌙';
+        themeToggle.title = 'Switch to dark mode';
+      } else {
+        themeToggle.textContent = '☀️';
+        themeToggle.title = 'Switch to light mode';
+      }
+    }
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      updateThemeUI();
+    });
+    updateThemeUI();
+
+    // PARTICLES
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = random(0, window.innerWidth);
+        this.y = random(window.innerHeight, window.innerHeight + 100);
+        this.size = random(2, 6);
+        this.speedY = random(0.3, 1);
+        this.speedX = random(-0.3, 0.3);
+        this.opacity = random(0.1, 0.4);
+        this.color = '#FF8C66';
+      }
+
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+        if (this.y < -this.size || this.x < -this.size || this.x > window.innerWidth + this.size) {
+          this.reset();
+          this.y = window.innerHeight + this.size;
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255, 140, 102, ${this.opacity})`;
+        // Adjust shadow/glow depending on theme for better visibility
+        if (document.body.classList.contains('light-mode')) {
+          ctx.shadowColor = 'rgba(255, 140, 102, 0.7)';
+          ctx.shadowBlur = 10;
+        } else {
+          ctx.shadowColor = '#FF8C66';
+          ctx.shadowBlur = 5;
+        }
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0; // reset
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initParticles();
+    });
+
+    resizeCanvas();
+    initParticles();
+    animateParticles();
 
   </script>
 </body>
